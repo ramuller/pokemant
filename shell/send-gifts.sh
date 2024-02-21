@@ -71,78 +71,85 @@ back_home()
 receive_gift()
 {
     echo Do not send gift
-    printf "############# Send gift"
-    printf "click:250,831,1,200\n" | tee $PIPE
-    ## gift-send:color:218,831,0xFF,0xD0,0xF9
-    ## gift-send:color:218,831,255,208,249
-    # sleep 1
-    sleep 4
-    echo press send
-    printf "click:291,853,1,200\n" | tee $PIPE
-    ## gift-send:color:291,853,0x84,0xD4,0xA5
-    ## gift-send:color:291,853,132,212,165
-    sleep 2
-    if check_color 150 519 232 128 181 10 ; then
-        echo Limit reached
-        printf "click:290,945,3,200\n" | tee $PIPE
-        sleep 1
-        no_send="true"
-        send_limit_reached="true"
-    else
-        printf "click:291,853,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xD4,0xFD,0xDF
-        ## gift-send:color:165,885,212,253,223
-        sleep 1
-        printf "button_up:165,885,1,200\n" | tee $PIPE
-        sleep 0
-        printf "button_down:165,885,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xF3,0xE7,0xD0
-        ## gift-send:color:165,885,243,231,208
-        sleep 0
-        printf "button_up:165,885,1,200\n" | tee $PIPE
-        sleep 1
-        printf "button_down:165,885,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xF3,0xE7,0xD0
-        ## gift-send:color:165,885,243,231,208
-        sleep 0
-        printf "button_up:165,885,1,200\n" | tee $PIPE
-        sleep 0
-        printf "button_down:165,885,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xF3,0xE7,0xD0
-        ## gift-send:color:165,885,243,231,208
+    if [ "$open_limit_reached" != "true" ]
+    then
+        printf "############# Open gift"
+        printf "click:250,831,1,200\n" | tee $PIPE
+        ## gift-send:color:218,831,0xFF,0xD0,0xF9
+        ## gift-send:color:218,831,255,208,249
         # sleep 1
-        # printf "button_up:165,885,1,200\n" | tee $PIPE
-        # sleep 0
-        # printf "button_down:165,885,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xF3,0xE7,0xD0
-        ## gift-send:color:165,885,243,231,208
-        sleep 0
-        printf "button_up:165,885,1,200\n" | tee $PIPE
-        sleep 1
-        printf "button_down:165,885,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xF3,0xE7,0xD0
-        ## gift-send:color:165,885,243,231,208
-        sleep 0
-        printf "button_up:165,885,1,200\n" | tee $PIPE
-        sleep 0
-        printf "button_down:165,885,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xF3,0xE7,0xD0
-        ## gift-send:color:165,885,243,231,208
-        sleep 1
-        printf "button_up:165,885,1,200\n" | tee $PIPE
-        sleep 0
-        printf "button_down:165,885,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xF3,0xE7,0xD0
-        ## gift-send:color:165,885,243,231,208
-        sleep 0
-        printf "button_up:165,885,1,200\n" | tee $PIPE
+        sleep 4
+        echo press open
+        printf "click:291,853,1,200\n" | tee $PIPE
+        ## gift-send:color:291,853,0x84,0xD4,0xA5
+        ## gift-send:color:291,853,132,212,165
         sleep 2
-        printf "button_down:165,885,1,200\n" | tee $PIPE
-        ## gift-send:color:165,885,0xFF,0xE9,0xED
-        ## gift-send:color:165,885,255,233,237
+        if check_color 150 519 232 128 181 10 ; then
+            echo Limit reached
+            printf "click:290,945,3,200\n" | tee $PIPE
+            sleep 1
+            no_gift="true"
+            open_limit_reached="true"
+        else
+            printf "click:291,853,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xD4,0xFD,0xDF
+            ## gift-send:color:165,885,212,253,223
+            sleep 1
+            printf "button_up:165,885,1,200\n" | tee $PIPE
+            sleep 0
+            printf "button_down:165,885,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xF3,0xE7,0xD0
+            ## gift-send:color:165,885,243,231,208
+            sleep 0
+            printf "button_up:165,885,1,200\n" | tee $PIPE
+            sleep 1
+            printf "button_down:165,885,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xF3,0xE7,0xD0
+            ## gift-send:color:165,885,243,231,208
+            sleep 0
+            printf "button_up:165,885,1,200\n" | tee $PIPE
+            sleep 0
+            printf "button_down:165,885,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xF3,0xE7,0xD0
+            ## gift-send:color:165,885,243,231,208
+            # sleep 1
+            # printf "button_up:165,885,1,200\n" | tee $PIPE
+            # sleep 0
+            # printf "button_down:165,885,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xF3,0xE7,0xD0
+            ## gift-send:color:165,885,243,231,208
+            sleep 0
+            printf "button_up:165,885,1,200\n" | tee $PIPE
+            sleep 1
+            printf "button_down:165,885,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xF3,0xE7,0xD0
+            ## gift-send:color:165,885,243,231,208
+            sleep 0
+            printf "button_up:165,885,1,200\n" | tee $PIPE
+            sleep 0
+            printf "button_down:165,885,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xF3,0xE7,0xD0
+            ## gift-send:color:165,885,243,231,208
+            sleep 1
+            printf "button_up:165,885,1,200\n" | tee $PIPE
+            sleep 0
+            printf "button_down:165,885,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xF3,0xE7,0xD0
+            ## gift-send:color:165,885,243,231,208
+            sleep 0
+            printf "button_up:165,885,1,200\n" | tee $PIPE
+            sleep 2
+            printf "button_down:165,885,1,200\n" | tee $PIPE
+            ## gift-send:color:165,885,0xFF,0xE9,0xED
+            ## gift-send:color:165,885,255,233,237
+            sleep 1
+            printf "button_up:165,885,1,200\n" | tee $PIPE
+            sleep 2
+        fi
+    else
+        echo limit reached don not open
+        printf "click:289,950,1,100\n" | tee $PIPE
         sleep 1
-        printf "button_up:165,885,1,200\n" | tee $PIPE
-        sleep 2
     fi
 }
 
@@ -151,7 +158,7 @@ friends_page()
     echo Go to friend page
     # click avatar
     printf "click:75,925,1,200\n" | tee $PIPE
-    sleep 4
+    sleep 3
     # click friends
     printf "click:291,100,1,200\n" | tee $PIPE
     ## gift-s7:color:75,925,0x1A,0x13,0x0A
@@ -171,10 +178,21 @@ friends_page()
 }
 gift_cycle()
 {
+    # check which round
     # Search trainer
-    printf "click:489,239,1,200\n" | tee $PIPE
-    ## gift-s7:color:489,239,0x6E,0xD9,0xBE
-    sleep 3
+    # type dela
+    if check_color 515 244 12 202 165 5
+    then
+        echo "second round"
+        printf "click:515,244,1,200\n" | tee $PIPE
+        sleep 0.5
+        printf "click:489,239,1,200\n" | tee $PIPE
+        sleep 3
+    else
+        echo Frist round more delay
+        printf "click:489,239,1,200\n" | tee $PIPE
+        sleep 3
+    fi
     printf "key:\!\n" | tee $PIPE
     sleep 0
     printf "key:f\n" | tee $PIPE
@@ -223,36 +241,33 @@ gift_cycle()
         sleep 0
         printf "button_up:285,843,1,200\n" | tee $PIPE
         sleep 5
-        printf "button_down:292,947,1,200\n" | tee $PIPE
-        ## gift-s7:color:292,947,0x21,0x88,0x83
-        sleep 0
-        printf "button_up:292,947,1,200\n" | tee $PIPE
-        sleep 2
         # printf "button_down:292,947,1,200\n" | tee $PIPE
         ## gift-s7:color:292,947,0x3D,0x79,0x75
         # sleep 0
         # printf "button_up:292,947,1,200\n" | tee $PIPE
     fi
+    echo echo friend screen
+    printf "click:292,947,1,200\n" | tee $PIPE
 }
 
 main()
 {
-    back_home
-    friends_page
     while true
     do
-        no_gift="unknown"
-        no_send="unknown"
+        back_home
+        friends_page
+        no_gift="done"
+        no_send="done"
         gift_cycle
         # return 1 if nothing to send and nothing to receive
         echo no_gift "$no_gift"
         echo no_send "$no_send"
         
-        if [[ -n "$no_gift" && -n "$no_send"  ]] ; then
+        if [[ "$no_gift" != "done" && "$no_send" != "done" ]] ; then
             echo Nothing to send nothing to get
             exit 1
         fi
-        exit 0
+        # exit 0
     done
 }
    
