@@ -1,0 +1,27 @@
+# start A71 master
+./run x --window-title="gift-send" -s R58M67HLZPY -m 1024 --max-fps=4
+
+# start s7 gold
+./run x --window-title="gift-send" -s ce0117119076d82a0c -m 1024 --max-fps=4 --no-audio-playback --turn-screen-off
+
+# Schlumpiz
+./run x --window-title="schlumpiz" -s ce091609f2237a1904 -m 1024 --max-fps=4 --no-audio-playback --turn-screen-off
+
+export PIPE="/tmp/schlumpiz" ; c=0 ; while sleep 1; do c=$(( c = c +1 )) ; echo gift $c; bash send-gifts.sh ; done
+
+# pokeralle
+./run x --window-title="poke" -s ce091719d290250304 -m 1024 --max-fps=4 --no-audio-playback --turn-screen-off
+
+export PIPE="/tmp/poke" ; c=0 ; while sleep 1; do c=$(( c = c +1 )) ; echo gift $c; bash send-gifts.sh ; done
+
+
+# aphex
+./run x --window-title="aphex" -s R58M93ND7BF -m 1024 --max-fps=4 --no-audio-playback --turn-screen-off
+
+./attack.sh /tmp/aphex
+
+# faker
+./run x --window-title="faker" -s R58MB2R1RSK -m 1024 --max-fps=4 --no-audio-playback --turn-screen-off
+./attack.sh /tmp/faker
+
+export PIPE="/tmp/poke" ; c=0 ; while sleep 1; do c=$(( c = c +1 )) ; echo gift $c; bash send-gifts.sh ; done
